@@ -1,30 +1,36 @@
-import { Component, OnInit } from '@angular/core';
-import { Transacao } from '../../model/transacao';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TransacaoService } from '../transacao.service';
-import { TableModule } from 'primeng/table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tela-inicial',
   standalone: true,
-  imports: [CommonModule, TableModule],
+  imports: [CommonModule], 
   templateUrl: './tela-inicial.component.html',
-  styleUrl: './tela-inicial.component.css'
+  styleUrls: ['./tela-inicial.component.css']
 })
-export class TelaInicialComponent implements OnInit {
-  
-  extrato: Transacao[] = [];
-  texto: string = "EXTRATO DO CLIENTE"
+export class TelaInicialComponent {
+  public saldoFicticio: string = ''; 
+  public investimentoFicticio: string = ''; 
+  public creditoFicticio: string = ''; 
 
-  constructor(
-    private service: TransacaoService
-  ) { }
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {
+  public mostrarSaldo() {
+    this.saldoFicticio = 'R$ 5.000,00'; 
+    this.investimentoFicticio = ''; 
+    this.creditoFicticio = '';
+  }
 
-    this.service.buscarExtrato()
-      .subscribe(itens => {
-        this.extrato = itens;
-      })
+  public mostrarInvestimentos() {
+    this.investimentoFicticio = 'R$ 20.000,00'; 
+    this.saldoFicticio = '';
+    this.creditoFicticio = '';
+  }
+
+  public mostrarCredito() {
+    this.creditoFicticio = 'R$ 10.000,00'; 
+    this.saldoFicticio = ''; 
+    this.investimentoFicticio = '';
   }
 }

@@ -19,4 +19,8 @@ export class LoginComponent {
   public fazerLogin() {
     this.router.navigate(['/tela-inicial']);
   }
+
+  public irParaCadastro() {
+    this.router.navigate(['/cadastro']);
+  }
 }

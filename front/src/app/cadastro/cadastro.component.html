@@ -1,4 +1,17 @@
-<p>Faça seu cadastro</p>
-<input pInputText type="text" [(ngModel)]="dadosCadastrais.id">
-<input pInputText type="text" [(ngModel)]="dadosCadastrais.nome">
-<button pButton (click)="clickSalvar()">Cadastrar</button>
+<div class="container">
+    <div class="titulo">
+      <p>{{titulo}}</p>
+    </div>
+    <div class="form">
+      <p>
+        Nome: <input pInputText type="text" [(ngModel)]="dadosCadastrais.nome" class="input-text">
+      </p>
+      <p>
+        CPF: <input pInputText type="text" [(ngModel)]="dadosCadastrais.cpf" class="input-text">
+      </p>
+    </div>
+    <div class="botoes">
+      <button pButton (click)="clickSalvar()" class="btn-cadastrar">Cadastrar</button>
+      <button pButton (click)="voltarParaLogin()" class="btn-voltar">Voltar para Login</button>
+    </div>
+  </div>

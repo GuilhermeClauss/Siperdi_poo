@@ -1,16 +1,76 @@
-{{texto}}
+<div id="tela2">
+    <div class="header-container">
+        <div class="menu-icon">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <img src="sicredi.png" alt="Sicredi" class="logo">
+        <div class="notificacao">
+            <span class="bell">&#128276;</span>
+        </div>
+    </div>
 
-<p-table [value]="extrato">
-    <ng-template pTemplate="header">
-        <tr>
-            <th>Descrição</th>
-            <th>Valor</th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-transacao>
-        <tr>
-            <td>{{transacao.descricao}}</td>
-            <td>{{transacao.valor | currency:'R$'}}</td>
-        </tr>
-    </ng-template>
-</p-table>
+    <div class="usuario">
+        <span class="nome">Olá, GUILHERME</span>
+        <span class="user-welcome"><br>Bem-vindo ao Sicredi</span>
+    </div>
+
+    <div class="opcoes">
+        <div class="option-card" (click)="mostrarSaldo()">
+            <img src="saldo.png" alt="Saldo" class="option-icon">
+            <span class="option-label">Saldo</span>
+            <span class="arrow-icon">&#10140;</span>
+        </div>
+        <div class="option-card" (click)="mostrarInvestimentos()">
+            <img src="investimentos.png" alt="Investimentos" class="option-icon">
+            <span class="option-label">Investimentos</span>
+            <span class="arrow-icon">&#10140;</span>
+        </div>
+        <div class="option-card" (click)="mostrarCredito()">
+            <img src="credito.png" alt="Crédito" class="option-icon">
+            <span class="option-label">Crédito</span>
+            <span class="arrow-icon">&#10140;</span>
+        </div>
+    </div>
+
+    <div *ngIf="saldoFicticio" class="info-box">
+        <h2>Saldo disponível:</h2>
+        <p>{{ saldoFicticio }}</p>
+    </div>
+    <div *ngIf="investimentoFicticio" class="info-box">
+        <h2>Saldo de investimentos:</h2>
+        <p>{{ investimentoFicticio }}</p>
+    </div>
+    <div *ngIf="creditoFicticio" class="info-box">
+        <h2>Saldo de crédito:</h2>
+        <p>{{ creditoFicticio }}</p>
+    </div>
+
+    <div class="acoes">
+        <h2>Eu quero...</h2>
+        <ul>
+            <li>
+                <a href="/tela-pix" class="link-verde">
+                    <img src="pix.png" alt="Pix" class="pix-icon">
+                    Fazer um Pix
+                </a>
+            </li>
+            <li>
+                <a href="#" class="link-verde">
+                    <img src="conta.png" alt="Pagar Conta" class="pix-icon">
+                    Pagar uma conta
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="botaocdb">
+        <li>
+            <a href="/calculo-cdb" class="link-verde">
+                <img src="investimentos.png" alt="Calcular CDB" class="pix-icon cdb-icon">
+                Calcular CDB
+            </a>
+        </li>
+    </div>
+</div>
